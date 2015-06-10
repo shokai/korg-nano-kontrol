@@ -5,6 +5,9 @@ Util   = require './util'
 
 module.exports = class nanoKONTROL extends Device
 
+  @name = 'nanoKONTROL'
+  @detect = (name) -> /^nanoKONTROL/i.test name
+
   constructor: (@input, @name) ->
 
     super @input, @name
