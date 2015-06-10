@@ -1,0 +1,35 @@
+{
+  "name": "korg-nano-kontrol",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/korg-nano-kontrol.js",
+  "scripts": {
+    "test": "grunt test",
+    "build": "grunt build",
+    "watch": "grunt watch"
+  },
+  "keywords": [
+    "midi"
+  ],
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.9",
+    "coffee-errors": "*",
+    "mocha": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-simple-mocha": "*",
+    "grunt-notify": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-coffeelint": "*",
+    "grunt-contrib-watch": "*"
+  },
+  "dependencies": {
+    "debug": "*",
+    "es6-promise": "*",
+    "eventemitter2": "*",
+    "lodash": "*",
+    "midi": "*"
+  }
+}
