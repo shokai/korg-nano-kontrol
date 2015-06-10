@@ -28,7 +28,7 @@ module.exports = class nanoKONTROL2 extends Device
     @button 42, 'stop'
     @button 43, 'prev'
     @button 44, 'next'
-    @button 45, 'rec'
+    @button 45, 'record'
     @button 46, 'cycle'
     @button 60, 'marker:set'
     @button 61, 'marker:prev'

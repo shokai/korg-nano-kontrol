@@ -21,7 +21,7 @@ module.exports = class nanoKONTROL extends Device
     for index, code of Util.toArray [33..41]
       @button code, "b:#{index}"
 
-    @button 44, 'rec'
+    @button 44, 'record'
     @button 45, 'play'
     @button 46, 'stop'
     @button 47, 'prev'
