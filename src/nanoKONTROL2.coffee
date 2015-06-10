@@ -1,6 +1,7 @@
 debug = require('debug')('korg-nano-kontrol:nanoKONTROL2')
 
 Device = require './device'
+Util   = require './util'
 
 module.exports = class nanoKONTROL2 extends Device
 
@@ -11,16 +12,16 @@ module.exports = class nanoKONTROL2 extends Device
     for code in [0..7]
       @slider code, code
 
-    for index, code of Array.prototype.splice.call([16..23], 0)
+    for index, code of Util.toArray [16..23]
       @knob code, index
 
-    for index, code of Array.prototype.splice.call([32..39], 0)
+    for index, code of Util.toArray [32..39]
       @button code, "s:#{index}"
 
-    for index, code of Array.prototype.splice.call([48..55], 0)
+    for index, code of Util.toArray [48..55]
       @button code, "m:#{index}"
 
-    for index, code of Array.prototype.splice.call([64..71], 0)
+    for index, code of Util.toArray [64..71]
       @button code, "r:#{index}"
 
     @button 41, 'play'
