@@ -14,22 +14,24 @@ nanoKONTROL.connect().then(function(device){
     console.log("knob:1 >>> "+value);
   });
 
-  device.on('button:m:2',function(value){
+  device.on('button:m2',function(value){
     console.log("button:m:2 >>> "+value);
   });
 
+
   // catch all slider/knob/button event
-  device.on('slider',function(name, value){
-    console.log("slider:"+name+" => "+value);
+  device.on('slider:*',function(value){
+    console.log(this.event+' => '+value);
   });
 
-  device.on('knob',function(name, value){
-    console.log("knob:"+name+" => "+value);
+  device.on('knob:*',function(value){
+    console.log(this.event+' => '+value);
   });
 
-  device.on('button', function(name, value){
-    console.log("button:"+name+" => "+value);
+  device.on('button:**', function(value){
+    console.log(this.event+' => '+value);
   });
+
 }).catch(function(err){
   console.error(err);
 });
