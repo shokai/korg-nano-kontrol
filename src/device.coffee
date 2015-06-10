@@ -1,5 +1,5 @@
 {EventEmitter2} = require 'eventemitter2'
-debug = require('debug')("korg-nano-kontrol:device")
+Debug = require 'debug'
 
 module.exports = class Device extends EventEmitter2
 
@@ -8,15 +8,15 @@ module.exports = class Device extends EventEmitter2
       wildcard: true
       delimiter: ':'
 
+    @debug = Debug("korg-nano-kontrol:device:#{@name}")
+
     @codes = {}
     @default =
       type: 'analog'
 
     @input.on 'message', (deltaTime, msg) =>
-      debug msg
-      return if msg[0] isnt 176
-
-      if opts = @codes[msg[1]]
+      @debug msg
+      if opts = @codes[msg[0..1].join(',')]
         if opts.type is 'digital'
           @emit opts.name, msg[2] > 0
         else
@@ -26,6 +26,8 @@ module.exports = class Device extends EventEmitter2
     for k, v of @default
       unless opts[k]?
         opts[k] = v
+    if code instanceof Array
+      code = code.join(',')
     @codes[code] = opts
 
   button: (code, name) ->

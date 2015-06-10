@@ -4,6 +4,7 @@ midi      = require 'midi'
 debug     = require('debug')('midi-control')
 
 nanoKONTROL2 = require './nanoKONTROL2'
+nanoKONTROL  = require './nanoKONTROL'
 
 module.exports =
 
@@ -13,9 +14,13 @@ module.exports =
       for i in [0...input.getPortCount()]
         name = input.getPortName i
         debug "found device [#{i}] \"#{name}\""
-        continue unless /nanoKONTROL2/i.test name
-        debug "openPort #{i}"
-        input.openPort i
-        return resolve new nanoKONTROL2 input, name
+        if /nanoKONTROL2/i.test name
+          debug "openPort #{i}"
+          input.openPort i
+          return resolve new nanoKONTROL2 input, name
+        if /nanoKONTROL/i.test name
+          debug "openPORT #{i}"
+          input.openPort i
+          return resolve new nanoKONTROL input, name
 
       return reject "device not found : \"#{name}\""

@@ -1,6 +1,7 @@
 debug = require('debug')('korg-nano-kontrol:nanoKONTROL2')
 
 Device = require './device'
+Util   = require './util'
 
 module.exports = class nanoKONTROL2 extends Device
 
@@ -8,31 +9,31 @@ module.exports = class nanoKONTROL2 extends Device
 
     super @input, @name
 
-    for code in [0..7]
-      @slider code, code
+    for index,code of Util.toArray [0..7]
+      @slider [176,code], index
 
-    for index, code of Array.prototype.splice.call([16..23], 0)
-      @knob code, index
+    for index, code of Util.toArray [16..23]
+      @knob [176,code], index
 
-    for index, code of Array.prototype.splice.call([32..39], 0)
-      @button code, "s:#{index}"
+    for index, code of Util.toArray [32..39]
+      @button [176,code], "s:#{index}"
 
-    for index, code of Array.prototype.splice.call([48..55], 0)
-      @button code, "m:#{index}"
+    for index, code of Util.toArray [48..55]
+      @button [176,code], "m:#{index}"
 
-    for index, code of Array.prototype.splice.call([64..71], 0)
-      @button code, "r:#{index}"
+    for index, code of Util.toArray [64..71]
+      @button [176,code], "r:#{index}"
 
-    @button 41, 'play'
-    @button 42, 'stop'
-    @button 43, 'prev'
-    @button 44, 'next'
-    @button 45, 'rec'
-    @button 46, 'cycle'
-    @button 60, 'marker:set'
-    @button 61, 'marker:prev'
-    @button 62, 'marker:next'
-    @button 58, 'track:prev'
-    @button 59, 'track:next'
+    @button [176,41], 'play'
+    @button [176,42], 'stop'
+    @button [176,43], 'prev'
+    @button [176,44], 'next'
+    @button [176,45], 'rec'
+    @button [176,46], 'cycle'
+    @button [176,60], 'marker:set'
+    @button [176,61], 'marker:prev'
+    @button [176,62], 'marker:next'
+    @button [176,58], 'track:prev'
+    @button [176,59], 'track:next'
 
 
