@@ -33,6 +33,24 @@ module.exports = class nanoKONTROL2 extends EventEmitter2
           @_emit ['button', 'r', index], message[2] > 0
           return
 
+      buttons =
+        41: 'play'
+        42: 'stop'
+        43: 'prev'
+        44: 'next'
+        45: 'rec'
+        46: 'cycle'
+        60: 'marker:set'
+        61: 'marker:prev'
+        62: 'marker:next'
+        58: 'track:prev'
+        59: 'track:next'
+
+      for code, name of buttons
+        if message[1] is code-0
+          debug name
+          @_emit ['button', name], message[2] > 0
+
   _emit: (tree, value) ->
     @emit tree.join(':'), value
     category = tree.shift()
