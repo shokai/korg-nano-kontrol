@@ -14,7 +14,7 @@ nanoKONTROL.connect().then(function(device){
     console.log("knob:1 >>> "+value);
   });
 
-  device.on('button:m2',function(value){
+  device.on('button:m:2',function(value){
     console.log("button:m:2 >>> "+value);
   });
 
