@@ -8,16 +8,33 @@ module.exports = class nanoKONTROL2 extends EventEmitter2
     @input.on 'message', (deltaTime, message) =>
       debug message
 
-      for name in [0..7]
-        if message[1] is name
-          @emit "slider:#{name}", message[2]
-          @emit 'slider', name, message[2]
+      for index in [0..7]
+        if message[1] is index
+          @_emit ['slider', index], message[2]
           return
 
-      for name, i of Array.prototype.splice.call([16..23], 0)
-        if message[1] is i
-          @emit "knob:#{name}", message[2]
-          @emit 'knob', name, message[2]
+      for index, code of Array.prototype.splice.call([16..23], 0)
+        if message[1] is code
+          @_emit ['knob', index], message[2]
           return
 
+      for index, code of Array.prototype.splice.call([32..39], 0)
+        if message[1] is code
+          @_emit ['button', 's', index], message[2] > 0
+          return
+
+      for index, code of Array.prototype.splice.call([48..55], 0)
+        if message[1] is code
+          @_emit ['button', 'm', index], message[2] > 0
+          return
+
+      for index, code of Array.prototype.splice.call([64..71], 0)
+        if message[1] is code
+          @_emit ['button', 'r', index], message[2] > 0
+          return
+
+  _emit: (tree, value) ->
+    @emit tree.join(':'), value
+    category = tree.shift()
+    @emit category, tree.join(':'), value
 
