@@ -2,8 +2,7 @@ var path = require('path');
 var nanoKONTROL = require(path.resolve());
 
 nanoKONTROL.connect().then(function(device){
-  console.log('connected!');
-  console.log(device);
+  console.log('connected! ' + device.name);
 
   // register specific slider/knob/button event
   device.on('slider:0', function(value){
