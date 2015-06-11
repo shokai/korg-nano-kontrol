@@ -10,7 +10,9 @@
     "buildSample": "browserify --debug samples/webmidi/src/main.js -o samples/webmidi/dist/bundle.js"
   },
   "keywords": [
-    "midi"
+    "midi",
+    "korg",
+    "nanoKONTROL"
   ],
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
