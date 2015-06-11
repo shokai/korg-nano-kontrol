@@ -9,7 +9,9 @@ Node.js library for KORG nanoKONTROL and nanoKONTROL2.
 
 ## Install
 
-    % npm i korg-nano-kontrol -save
+    % npm install korg-nano-kontrol -save
+
+- This library depends on [midi npm](https://www.npmjs.com/package/midi) to handle MIDI messages. Please install ALSA libs after run npm install.
 
 
 ## Usage
