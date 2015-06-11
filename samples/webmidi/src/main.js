@@ -1,4 +1,3 @@
-
 // var nanoKONTROL = require('korg-nano-kontrol');
 var nanoKONTROL = require('../../../');
 
@@ -14,8 +13,8 @@ nanoKONTROL.connect()
     print(this.event + ' => ' + value);
   });
 
-  device.on('button:play', function(value){
-    print('button:play => ' + value);
+  device.on('button:**', function(value){
+    print(this.event + ' => ' + value);
   });
 })
 .catch(function(err){
