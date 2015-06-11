@@ -1,3 +1,7 @@
+=== 0.1.0 2015-06-11
+
+* support WebMIDI API  #2
+
 === 0.0.3 2015-06-11
 
 * specify device name by "device.connect(name)"  #1
