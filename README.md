@@ -20,7 +20,6 @@ var nanoKONTROL = require('korg-nano-kontrol');
 nanoKONTROL.connect()
 .then(function(device){
   console.log('connected!' + device.name);
-
   // do something
 })
 .catch(function(err){
@@ -31,26 +30,26 @@ nanoKONTROL.connect()
 ### Register Events
 
 ```javascript
-// register specific slider/knob/button event
+// register specific slider/knob/button events
 device.on('slider:0', function(value){
   console.log("slider:0 >>> "+value);
 });
 
-device.on('knob:1',function(value){
+device.on('knob:1', function(value){
   console.log("knob:1 >>> "+value);
 });
 
-device.on('button:m:2',function(value){
-  console.log("button:m:2 >>> "+value);
+device.on('button:play', function(value){
+  console.log("button:play >>> "+value);
 });
 
 
-// catch all slider/knob/button event
-device.on('slider:*',function(value){
+// catch all slider/knob/button events
+device.on('slider:*', function(value){
   console.log(this.event+' => '+value);
 });
 
-device.on('knob:*',function(value){
+device.on('knob:*', function(value){
   console.log(this.event+' => '+value);
 });
 
