@@ -3,10 +3,10 @@ midi      = require 'midi'
 {Promise} = require 'es6-promise' if typeof Promise isnt 'function'
 debug     = require('debug')('midi-control')
 
-nanoKONTROL2 = require './nanoKONTROL2'
-nanoKONTROL  = require './nanoKONTROL'
+NanoKONTROL2 = require './nanoKONTROL2'
+NanoKONTROL  = require './nanoKONTROL'
 
-devices = [nanoKONTROL2, nanoKONTROL]
+devices = [NanoKONTROL2, NanoKONTROL]
 
 module.exports =
 

@@ -3,7 +3,7 @@ debug = require('debug')('korg-nano-kontrol:nanoKONTROL2')
 Device = require './device'
 Util   = require './util'
 
-module.exports = class nanoKONTROL2 extends Device
+module.exports = class NanoKONTROL2 extends Device
 
   @name = 'nanoKONTROL2'
   @detect = (name) -> /^nanoKONTROL2/i.test name
