@@ -1,7 +1,9 @@
 var path = require('path');
 var nanoKONTROL = require(path.resolve());
+// var nanoKONTROL = require('korg-nano-kontrol');
 
-nanoKONTROL.connect().then(function(device){
+nanoKONTROL.connect()
+.then(function(device){
   console.log('connected! ' + device.name);
 
   // register specific slider/knob/button event
@@ -31,6 +33,7 @@ nanoKONTROL.connect().then(function(device){
     console.log(this.event+' => '+value);
   });
 
-}).catch(function(err){
+})
+.catch(function(err){
   console.error(err);
 });
