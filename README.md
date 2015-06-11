@@ -1,5 +1,5 @@
 # korg-nano-kontrol
-Node.js library for KORG nanoKONTROL and nanoKONTROL2.
+Node.js/Browser library for KORG nanoKONTROL and nanoKONTROL2.
 
 - https://github.com/shokai/korg-nano-kontrol
 - https://npmjs.com/package/korg-nano-kontrol
@@ -11,7 +11,12 @@ Node.js library for KORG nanoKONTROL and nanoKONTROL2.
 
     % npm install korg-nano-kontrol -save
 
-- This library depends on [midi npm](https://www.npmjs.com/package/midi) to handle MIDI messages. Please install ALSA libs after run npm install.
+- On Node.js, This library depends on [midi npm](https://www.npmjs.com/package/midi) to handle MIDI messages. Please install ALSA libs after run npm install.
+- On Browser, require [WebMIDI API](http://www.w3.org/TR/webmidi/) support.
+
+## Samples
+- [node](https://github.com/shokai/korg-nano-kontrol/tree/master/samples/node)
+- [webmidi](https://github.com/shokai/korg-nano-kontrol/tree/master/samples/webmidi)
 
 
 ## Usage
