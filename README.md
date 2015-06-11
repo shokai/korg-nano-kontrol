@@ -16,6 +16,9 @@ Node.js library for KORG nanoKONTROL and nanoKONTROL2.
 
 ## Usage
 
+### Connect
+
+find `nanoKONTROL` or `nanoKONTROL2`
 ```javascript
 var nanoKONTROL = require('korg-nano-kontrol');
 
@@ -27,6 +30,11 @@ nanoKONTROL.connect()
 .catch(function(err){
   console.error(err);
 });
+```
+
+specify device name
+```javascript
+nanoKONTROL.connect('nanoKONTROL2').then( function(device){ } );
 ```
 
 ### Register Events

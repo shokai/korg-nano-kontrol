@@ -6,16 +6,20 @@ debug     = require('debug')('midi-control')
 NanoKONTROL2 = require './nanoKONTROL2'
 NanoKONTROL  = require './nanoKONTROL'
 
-devices = [NanoKONTROL2, NanoKONTROL]
+Devices = [NanoKONTROL2, NanoKONTROL]
 
 module.exports =
 
-  connect: ->
+  connect: (deviceName = null) ->
     return new Promise (resolve, reject) ->
       input = new midi.input
       for i in [0...input.getPortCount()]
         name = input.getPortName i
         debug "found device [#{i}] \"#{name}\""
+
+        devices = Devices.filter (i) ->
+          !deviceName? or i.deviceName is deviceName
+
         for device in devices
           if device.detect name
             debug "detect \"#{device.name}\""
