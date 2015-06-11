@@ -4,3 +4,4 @@
 node_modules
 *.log
 tmp
+samples/webmidi/dist/bundle.js

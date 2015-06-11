@@ -6,7 +6,8 @@
   "scripts": {
     "test": "grunt test",
     "build": "grunt build",
-    "watch": "grunt watch"
+    "watch": "grunt watch",
+    "buildSample": "browserify --debug samples/webmidi/src/main.js -o samples/webmidi/dist/bundle.js"
   },
   "keywords": [
     "midi"
@@ -14,16 +15,17 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "devDependencies": {
-    "coffee-script": "^1.9",
+    "browserify": "^10.2.4",
     "coffee-errors": "*",
-    "mocha": "*",
+    "coffee-script": "^1.9",
     "grunt": "*",
     "grunt-cli": "*",
-    "grunt-simple-mocha": "*",
-    "grunt-notify": "*",
-    "grunt-contrib-coffee": "*",
     "grunt-coffeelint": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-notify": "*",
+    "grunt-simple-mocha": "*",
+    "mocha": "*"
   },
   "dependencies": {
     "debug": "*",
