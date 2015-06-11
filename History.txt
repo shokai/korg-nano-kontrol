@@ -1,3 +1,7 @@
+=== 0.0.3 2015-06-11
+
+* specify device name by "device.connect(name)"  #1
+
 === 0.0.2 2015-06-11
 
 * add method device.close()  #3
