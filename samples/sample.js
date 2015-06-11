@@ -11,21 +11,29 @@ nanoKONTROL.connect()
     console.log("slider:0 >>> "+value);
   });
 
-  device.on('knob:1',function(value){
+  device.on('knob:1', function(value){
     console.log("knob:1 >>> "+value);
   });
 
-  device.on('button:m:2',function(value){
-    console.log("button:m:2 >>> "+value);
+  device.on('button:play', function(value){
+    console.log("button:play >>> "+value);
+  });
+
+  device.on('button:stop', function(value){
+    console.log("button:stop >>> "+value);
+    if(value === false){
+      console.log('exit!!');
+      device.close();
+    }
   });
 
 
   // catch all slider/knob/button event
-  device.on('slider:*',function(value){
+  device.on('slider:*', function(value){
     console.log(this.event+' => '+value);
   });
 
-  device.on('knob:*',function(value){
+  device.on('knob:*', function(value){
     console.log(this.event+' => '+value);
   });
 

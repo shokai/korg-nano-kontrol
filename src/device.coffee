@@ -22,6 +22,10 @@ module.exports = class Device extends EventEmitter2
         else
           @emit opts.name, msg[2]
 
+  close: ->
+    @debug 'closePort'
+    @input.closePort()
+
   register: (code, opts) ->
     for k, v of @default
       unless opts[k]?

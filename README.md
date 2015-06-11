@@ -60,6 +60,10 @@ device.on('button:**', function(value){
 });
 ```
 
+### Close
+```javascript
+device.close();
+```
 
 ### Scene
 nanoKONTROL has a `scene` button
