@@ -14,7 +14,7 @@ module.exports = class NanoKONTROL extends Device
     @input.ignoreTypes false, false, true
     @setScene 1
 
-    @input.on 'message', (deltaTime, msg) =>
+    @on 'midi:message', (msg) =>
       if msg.length is 11 and
          msg[0] is 240 and
          msg[10] is 247

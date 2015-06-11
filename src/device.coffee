@@ -18,20 +18,18 @@ module.exports = class Device extends EventEmitter2
 
     if window? # for browser
       @input.onmidimessage = (msg) =>
-        msg = msg.data
-        if opts = @codes["#{msg[0]},#{msg[1]}"]
-          if opts.type is 'digital'
-            @emit opts.name, msg[2] > 0
-          else
-            @emit opts.name, msg[2]
-    else
+        @emit 'midi:message', msg.data
+    else  # for node.js
       @input.on 'message', (deltaTime, msg) =>
-        @debug msg
-        if opts = @codes[msg[0..1].join(',')]
-          if opts.type is 'digital'
-            @emit opts.name, msg[2] > 0
-          else
-            @emit opts.name, msg[2]
+        @emit 'midi:message', msg
+
+    @on 'midi:message', (msg) =>
+      @debug msg
+      if opts = @codes["#{msg[0]},#{msg[1]}"]
+        if opts.type is 'digital'
+          @emit opts.name, msg[2] > 0
+        else
+          @emit opts.name, msg[2]
 
   close: ->
     @debug 'closePort'
