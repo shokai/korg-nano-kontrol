@@ -35,5 +35,13 @@
     "eventemitter2": "*",
     "lodash": "*",
     "midi": "*"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokai/korg-nano-kontrol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shokai/korg-nano-kontrol/issues"
+  },
+  "homepage": "https://github.com/shokai/korg-nano-kontrol#readme"
 }
