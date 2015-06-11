@@ -11,7 +11,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-notify'
 
   grunt.registerTask 'build',   [ 'coffee' ]
-  grunt.registerTask 'test',    [ 'build', 'simplemocha' ]
+  grunt.registerTask 'test',    [ 'coffeelint', 'build', 'simplemocha' ]
   grunt.registerTask 'default', [ 'test', 'watch' ]
 
   grunt.initConfig
@@ -21,7 +21,7 @@ module.exports = (grunt) ->
     coffeelint:
       options:
         max_line_length:
-          value: 0
+          value: 119
         indentation:
           value: 2
         newlines_after_classes:
@@ -30,11 +30,10 @@ module.exports = (grunt) ->
           level: 'error'
         no_unnecessary_fat_arrows:
           level: 'ignore'
-      dist:
-        files: [
-          '**/*.coffee'
-          '!node_modules/**'
-        ]
+      files: [
+        '**/*.coffee'
+        '!node_modules/**'
+      ]
 
     coffee:
       dist:
