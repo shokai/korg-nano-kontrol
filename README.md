@@ -1,4 +1,5 @@
 # korg-nano-kontrol
+Node.js library for KORG nanoKONTROL and nanoKONTROL2.
 
 - https://github.com/shokai/korg-nano-kontrol
 - https://npmjs.com/package/korg-nano-kontrol
