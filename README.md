@@ -89,6 +89,25 @@ device.on('button:scene', function(scene){
 });
 ```
 
+## Debug
+
+enable [debug npm](https://www.npmjs.com/package/debug)
+
+for node.js
+
+    % export DEBUG="korg-nano-kontrol:*"
+
+for browser
+
+    localStorage.debug = "korg-nano-kontrol:*";
+
+## Build
+
+    % npm run build
+    % npm run buildSample
+
+    % npm run watch
+
 ## Test
 
     % npm install
