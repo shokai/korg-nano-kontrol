@@ -4,9 +4,9 @@
   "description": "Node.js/Browser library for KORG nanoKONTROL and nanoKONTROL2",
   "main": "lib/korg-nano-kontrol.js",
   "scripts": {
-    "test": "grunt test",
-    "build": "grunt build",
-    "watch": "grunt watch",
+    "test": "eslint src/*.es6 src/*/*.es6",
+    "build": "babel src/ --out-dir lib/ --source-maps inline",
+    "watch": "babel src/ --out-dir lib/ --source-maps inline --watch",
     "buildSample": "browserify --debug samples/webmidi/src/main.js -o samples/webmidi/dist/bundle.js"
   },
   "keywords": [
@@ -17,17 +17,10 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^10.2.4",
-    "coffee-errors": "*",
-    "coffee-script": "^1.9",
-    "grunt": "*",
-    "grunt-cli": "*",
-    "grunt-coffeelint": "*",
-    "grunt-contrib-coffee": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-notify": "*",
-    "grunt-simple-mocha": "*",
-    "mocha": "*"
+    "babel": "*",
+    "babel-eslint": "*",
+    "browserify": "*",
+    "eslint": "*"
   },
   "dependencies": {
     "debug": "*",
