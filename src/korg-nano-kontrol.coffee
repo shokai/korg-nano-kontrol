@@ -31,7 +31,6 @@ module.exports =
         loop
           input = it.next()
           break if input.done
-
           name = input.value.name
           for device in Devices
             if device.detect name
