@@ -1,7 +1,7 @@
 debug = require('debug')('korg-nano-kontrol:nanoKONTROL2')
 
-Device = require './device'
-Util   = require './util'
+Device = require '../device'
+Util   = require '../util'
 
 module.exports = class NanoKONTROL2 extends Device
 
