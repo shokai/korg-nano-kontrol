@@ -11,7 +11,10 @@ module.exports = class NanoKONTROL extends Device
   constructor: (@input, @name) ->
 
     super @input, @name
-    @input.ignoreTypes false, false, true
+
+    if Util.getEnv() is 'nodejs'
+      @input.ignoreTypes false, false, true
+
     @setScene 1
 
     @on 'midi:message', (msg) =>

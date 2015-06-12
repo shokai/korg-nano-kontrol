@@ -1,23 +1,24 @@
-unless window?  # for node.js
-  midi      = require 'midi'
-
-{Promise} = require 'es6-promise' # if typeof Promise isnt 'function'
-
 _         = require 'lodash'
+{Promise} = require 'es6-promise' if typeof Promise isnt 'function'
 debug     = require('debug')('midi-control')
+
+Util = require './util'
 
 NanoKONTROL2 = require './nanoKONTROL2'
 NanoKONTROL  = require './nanoKONTROL'
-
 Devices = [NanoKONTROL2, NanoKONTROL]
+
+if Util.getEnv() is 'nodejs'
+  midi = require 'midi'
 
 module.exports =
 
   connect: (deviceName = null) ->
-    if window?
-      return @connectWebMidi deviceName
-    else
-      return @connectNodeMidi deviceName
+    switch Util.getEnv()
+      when 'browser'
+        return @connectWebMidi deviceName
+      when 'nodejs'
+        return @connectNodeMidi deviceName
 
   connectWebMidi: (deviceName) ->
     return new Promise (resolve, reject) ->

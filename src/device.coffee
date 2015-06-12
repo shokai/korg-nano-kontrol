@@ -16,12 +16,13 @@ module.exports = class Device extends EventEmitter2
     @default =
       type: 'analog'
 
-    if window? # for browser
-      @input.onmidimessage = (msg) =>
-        @emit 'midi:message', msg.data
-    else  # for node.js
-      @input.on 'message', (deltaTime, msg) =>
-        @emit 'midi:message', msg
+    switch Util.getEnv()
+      when 'browser'
+        @input.onmidimessage = (msg) =>
+          @emit 'midi:message', msg.data
+      when 'nodejs'
+        @input.on 'message', (deltaTime, msg) =>
+          @emit 'midi:message', msg
 
     @on 'midi:message', (msg) =>
       @debug msg
