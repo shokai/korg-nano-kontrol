@@ -9,10 +9,10 @@ import * as Util from "../util";
 module.exports = class NanoKONTROL2 extends Device {
 
   static get deviceName(){
-    return "nanoKONTROLaa2";
+    return "nanoKONTROL2";
   }
   static detect(name){
-    return /^nanoKONTROL2/i.test(name);
+    return /^nanoKONTROL2\s/i.test(name);
   }
 
   constructor(input, name){
