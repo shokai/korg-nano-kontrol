@@ -1,3 +1,7 @@
+=== 0.2.0 2015-06-13
+
+* rewrite coffee-script with ES6/babel
+
 === 0.1.2 2015-06-12
 
 * bugfix nanoKONTROL1 on browser
