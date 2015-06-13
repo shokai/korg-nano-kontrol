@@ -6,7 +6,7 @@
   "scripts": {
     "test": "eslint src/*.es6 src/*/*.es6",
     "build": "babel src/ --out-dir lib/ --source-maps inline",
-    "watch": "babel src/ --out-dir lib/ --source-maps inline --watch",
+    "watch": "parallelshell 'npm run build -- --watch' 'esw src/ --watch'",
     "buildSample": "browserify --debug samples/webmidi/src/main.js -o samples/webmidi/dist/bundle.js"
   },
   "keywords": [
@@ -20,7 +20,9 @@
     "babel": "*",
     "babel-eslint": "*",
     "browserify": "*",
-    "eslint": "*"
+    "eslint": "*",
+    "eslint-watch": "*",
+    "parallelshell": "*"
   },
   "dependencies": {
     "debug": "*",
