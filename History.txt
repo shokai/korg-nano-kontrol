@@ -1,3 +1,7 @@
+=== 0.2.1 2015-06-13
+
+* bugfix device detection
+
 === 0.2.0 2015-06-13
 
 * rewrite coffee-script with ES6/babel
