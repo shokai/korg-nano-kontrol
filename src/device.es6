@@ -50,11 +50,11 @@ module.exports = class Device extends EventEmitter2 {
   }
 
   register(code, opts){
-    for(var k of Object.keys(this.default)){
-      if(!opts.hasOwnProperty(k)){
-        opts[k] = this.default[k];
+    Object.keys(this.default).forEach(key => {
+      if(!opts.hasOwnProperty(key)){
+        opts[key] = this.default[key];
       }
-    }
+    });
     if(code instanceof Array){
       code = code.join(",");
     }

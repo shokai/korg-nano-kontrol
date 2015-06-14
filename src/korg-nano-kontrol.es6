@@ -38,7 +38,8 @@ function connectWebMidi(deviceName){
         while(!it.done){
           var input = it.next();
           var name = input.value.name;
-          for(let Device of devices){
+          for(var i = 0; i < devices.length; i++){
+            var Device = devices[i];
             if(Device.detect(name)){
               return resolve(new Device(input.value, name));
             }
@@ -61,7 +62,9 @@ function connectNodeMidi(deviceName){
       var name = input.getPortName(i);
       debug(`found device [${i}] "${name}"`);
 
-      for(let Device of devices){
+      for(var j = 0; j < devices.length; j++){
+        var Device = devices[j];
+        debug(Device.deviceName);
         if(Device.detect(name)){
           debug(`detect "${Device.name}"`);
           debug(`openPort ${i}`);
