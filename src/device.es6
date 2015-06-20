@@ -5,13 +5,14 @@ import * as Util from "./util";
 
 module.exports = class Device extends EventEmitter2 {
 
-  constructor(input, name){
+  constructor(input, name, opts = {globalMidiChannel: false}){
     super({
       wildcard: true,
       delimiter: ":"
     });
     this.input = input;
     this.name = name;
+    this.opts = opts;
 
     this.codes = {};
     this.default = {
@@ -33,13 +34,13 @@ module.exports = class Device extends EventEmitter2 {
 
     this.on("midi:message", (msg) => {
       this.debug(msg);
-      var opts = this.codes[`${msg[0]},${msg[1]}`];
-      if(!opts){ return; }
-      if(opts.type === "digital"){
-        this.emit(opts.name, msg[2] > 0);
+      var e = this.codes[opts.globalMidiChannel ? `${msg[0]},${msg[1]}` : msg[1]];
+      if(!e){ return; }
+      if(e.type === "digital"){
+        this.emit(e.name, msg[2] > 0);
       }
       else{
-        this.emit(opts.name, msg[2]);
+        this.emit(e.name, msg[2]);
       }
     });
   }

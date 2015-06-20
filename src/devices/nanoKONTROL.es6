@@ -16,7 +16,7 @@ module.exports = class NanoKONTROL extends Device {
   }
 
   constructor(input, name){
-    super(input, name);
+    super(input, name, {globalMidiChannel: true});
     this.debug = Debug("korg-nano-kontrol:nanoKONTROL");
     this.debug("created");
 
