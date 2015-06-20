@@ -47,7 +47,7 @@ module.exports = class NanoKONTROL extends Device {
     switch(scene){
     case 1:
       Util.eachWithIndex(
-        _.range(2, 7).concat([8, 9, 12, 13])
+        [..._.range(2, 7), 8, 9, 12, 13]
         , (index, code) => {
           this.slider([176, code], index);
         }
@@ -73,13 +73,13 @@ module.exports = class NanoKONTROL extends Device {
       break;
     case 2:
       Util.eachWithIndex(
-        [42, 43].concat(_.range(50, 57))
+        [42, 43, ..._.range(50, 57)]
         , (index, code) => {
           this.slider([176, code], index);
         }
       );
       Util.eachWithIndex(
-        _.range(57, 64).concat([65, 66])
+        [..._.range(57, 64), 65, 66]
         , (index, code) => {
           this.knob([176, code], index);
         }
@@ -105,7 +105,7 @@ module.exports = class NanoKONTROL extends Device {
         }
       );
       Util.eachWithIndex(
-        _.range(94, 98).concat(_.range(102, 107))
+        [..._.range(94, 98), ..._.range(102, 107)]
         , (index, code) => {
           this.knob([176, code], index);
         }
