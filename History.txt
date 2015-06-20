@@ -1,3 +1,7 @@
+=== 0.2.3 2015-06-14
+
+* added constructor "globalMidiChannel" option  #6
+
 === 0.2.2 2015-06-14
 
 * bugfix for Node.js 0.10
