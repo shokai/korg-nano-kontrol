@@ -21,6 +21,7 @@ nanoKONTROL.connect()
 })
 .catch(function(err){
   console.error(err);
+  alert(err.message);
 });
 
 var print = function(msg){
