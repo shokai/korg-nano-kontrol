@@ -22,7 +22,7 @@ module.exports = class Device extends EventEmitter2 {
     switch(Util.getEnv()){
     case "browser":
       this.input.onmidimessage = (msg) => {
-        this.emit("midi:message", msg.data);
+        this.emit("midi:message", Array.prototype.slice.call(msg.data));
       };
       break;
     case "nodejs":
