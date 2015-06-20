@@ -1,4 +1,10 @@
-=== 0.2.3 2015-06-14
+=== 0.2.4 2015-06-21
+
+* WebMIDI: convert Uint8Array -> Array
+* fixed webmidi sample
+* use spread operator instead of Array.concat
+
+=== 0.2.3 2015-06-20
 
 * added constructor "globalMidiChannel" option  #6
 
