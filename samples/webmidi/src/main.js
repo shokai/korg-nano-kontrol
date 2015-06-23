@@ -2,6 +2,7 @@ localStorage.debug = 'korg-nano-kontrol:*';
 
 // var nanoKONTROL = require('korg-nano-kontrol');
 var nanoKONTROL = require('../../../');
+var $ = require('jquery');
 
 nanoKONTROL.connect()
 .then(function(device){
@@ -21,7 +22,7 @@ nanoKONTROL.connect()
 })
 .catch(function(err){
   console.error(err);
-  alert(err.message);
+  alert(err);
 });
 
 var print = function(msg){

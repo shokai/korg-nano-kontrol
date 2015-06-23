@@ -22,6 +22,7 @@
     "browserify": "*",
     "eslint": "*",
     "eslint-watch": "*",
+    "jquery": "*",
     "parallelshell": "*"
   },
   "dependencies": {
