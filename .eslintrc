@@ -8,6 +8,8 @@
     "strict": 2,
     "new-cap": 0,
     "comma-spacing": [2, {"before": false, "after": true}],
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "no-constant-condition": 1,
+    "curly": 0
   }
 }

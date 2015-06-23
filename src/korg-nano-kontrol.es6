@@ -35,8 +35,9 @@ function connectWebMidi(deviceName){
     navigator.requestMIDIAccess()
       .then(webMidi => {
         var it = webMidi.inputs.values();
-        while(!it.done){
+        while(true){
           var input = it.next();
+          if(input.done) break;
           var name = input.value.name;
           for(var i = 0; i < devices.length; i++){
             var Device = devices[i];
