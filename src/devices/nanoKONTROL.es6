@@ -6,7 +6,7 @@ import Debug from "debug";
 import Device from "../device";
 import * as Util from "../util";
 
-module.exports = class NanoKONTROL extends Device {
+export default class NanoKONTROL extends Device {
 
   static get deviceName(){
     return "nanoKONTROL";
@@ -151,4 +151,4 @@ module.exports = class NanoKONTROL extends Device {
       break;
     }
   }
-};
+}

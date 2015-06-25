@@ -3,7 +3,7 @@
 import {EventEmitter2} from "eventemitter2";
 import * as Util from "./util";
 
-module.exports = class Device extends EventEmitter2 {
+export default class Device extends EventEmitter2 {
 
   constructor(input, name, opts = {globalMidiChannel: false}){
     super({
@@ -79,4 +79,4 @@ module.exports = class Device extends EventEmitter2 {
     var opts = {name: `slider:${name}`};
     this.register(code, opts);
   }
-};
+}
