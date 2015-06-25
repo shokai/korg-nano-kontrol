@@ -34,15 +34,10 @@ function connectWebMidi(deviceName){
     });
     navigator.requestMIDIAccess()
       .then(webMidi => {
-        var it = webMidi.inputs.values();
-        while(true){
-          var input = it.next();
-          if(input.done) break;
-          var name = input.value.name;
-          for(var i = 0; i < devices.length; i++){
-            var Device = devices[i];
-            if(Device.detect(name)){
-              return resolve(new Device(input.value, name));
+        for(let input of webMidi.inputs.values()){
+          for(let Device of devices){
+            if(Device.detect(input.name)){
+              return resolve(new Device(input, input.name));
             }
           }
         }
