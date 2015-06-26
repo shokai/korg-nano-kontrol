@@ -1,3 +1,8 @@
+=== 0.2.6 2015-06-26
+
+* use iterator in webmidi
+* module.exports -> export default
+
 === 0.2.5 2015-06-23
 
 * fixed WebMIDI init sequence, and sample code
