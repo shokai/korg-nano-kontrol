@@ -68,7 +68,7 @@ function connectNodeMidi(deviceName){
           return resolve(new Device(input, name));
         }
       }
-      return reject("device not found");
     }
+    return reject("device not found");
   });
 }
