@@ -17,19 +17,20 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "devDependencies": {
-    "babel": "*",
-    "babel-eslint": "*",
-    "browserify": "*",
-    "eslint": "*",
-    "eslint-watch": "*",
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-eslint": "^4.1.6",
+    "babel-preset-es2015": "^6.3.13",
+    "browserify": "^13.0.0",
+    "eslint": "^1.10.3",
     "jquery": "*",
-    "parallelshell": "*"
+    "parallelshell": "^2.0.0"
   },
   "dependencies": {
     "debug": "*",
     "es6-promise": "*",
     "eventemitter2": "*",
-    "lodash": "*",
+    "lodash": "^4.0.0",
     "midi": "*"
   },
   "repository": {
