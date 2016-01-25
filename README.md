@@ -1,5 +1,5 @@
 # korg-nano-kontrol
-Node.js/Browser library for KORG nanoKONTROL and nanoKONTROL2.
+Node.js/Browser library for KORG [nanoKONTROL](http://www.amazon.co.jp/dp/B001H2P294/shokai-22) and [nanoKONTROL2](http://www.amazon.co.jp/dp/B004M8UZS8/shokai-22).
 
 - https://github.com/shokai/korg-nano-kontrol
 - https://npmjs.com/package/korg-nano-kontrol
