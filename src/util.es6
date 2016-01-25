@@ -16,7 +16,7 @@ export function getEnv(){
 export function eachWithIndex(arr, iter){
   if(!(arr instanceof Array)){ return; }
   if(typeof iter !== "function"){ return; }
-  for(var i = 0; i < arr.length; i++){
+  for(let i = 0; i < arr.length; i++){
     iter(i, arr[i]);
   }
 }
