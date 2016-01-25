@@ -36,6 +36,7 @@ function connectWebMidi(deviceName){
         for(let input of webMidi.inputs.values()){
           for(let Device of devices){
             if(Device.detect(input.name)){
+              debug(`detect ${Device.name}`);
               return resolve(new Device(input, input.name));
             }
           }
@@ -59,7 +60,6 @@ function connectNodeMidi(deviceName){
       debug(`found device [${i}] "${name}"`);
 
       for(let Device of devices){
-        debug(Device.deviceName);
         if(Device.detect(name)){
           debug(`detect "${Device.name}"`);
           debug(`openPort ${i}`);

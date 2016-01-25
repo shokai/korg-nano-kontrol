@@ -1,4 +1,4 @@
-localStorage.debug = 'korg-nano-kontrol:*';
+localStorage.debug = 'korg-nano-kontrol*';
 
 // var nanoKONTROL = require('korg-nano-kontrol');
 var nanoKONTROL = require('../../../');
