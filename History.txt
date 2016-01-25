@@ -1,3 +1,8 @@
+=== 0.2.9 2016-01-26
+
+* bugfixed connecting from multiple devices  #10
+  * thank you for contributing @sashimizakana
+
 === 0.2.8 2016-01-25
 
 * use module.exports to provide "connect" function, instead of ES6 export
