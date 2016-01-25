@@ -1,3 +1,7 @@
+=== 0.2.8 2016-01-25
+
+* use module.exports to provide "connect" function, instead of ES6 export
+
 === 0.2.7 2016-01-25
 
 * specify version devDependencies  #8
