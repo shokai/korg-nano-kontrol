@@ -58,8 +58,7 @@ function connectNodeMidi(deviceName){
       let name = input.getPortName(i);
       debug(`found device [${i}] "${name}"`);
 
-      for(let j = 0; j < devices.length; j++){
-        let Device = devices[j];
+      for(let Device of devices){
         debug(Device.deviceName);
         if(Device.detect(name)){
           debug(`detect "${Device.name}"`);
