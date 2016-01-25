@@ -4,7 +4,7 @@ import _ from "lodash";
 
 import Debug from "debug";
 import Device from "../device";
-import * as Util from "../util";
+import {eachWithIndex} from "../util";
 
 export default class NanoKONTROL2 extends Device {
 
@@ -20,23 +20,23 @@ export default class NanoKONTROL2 extends Device {
     this.debug = Debug("korg-nano-kontrol:nanoKONTROL2");
     this.debug("created");
 
-    Util.eachWithIndex(_.range(0, 8), (index, code) => {
+    eachWithIndex(_.range(0, 8), (index, code) => {
       this.slider(code, index);
     });
 
-    Util.eachWithIndex(_.range(16, 24), (index, code) => {
+    eachWithIndex(_.range(16, 24), (index, code) => {
       this.knob(code, index);
     });
 
-    Util.eachWithIndex(_.range(32, 40), (index, code) => {
+    eachWithIndex(_.range(32, 40), (index, code) => {
       this.button(code, `s:${index}`);
     });
 
-    Util.eachWithIndex(_.range(48, 56), (index, code) => {
+    eachWithIndex(_.range(48, 56), (index, code) => {
       this.button(code, `m:${index}`);
     });
 
-    Util.eachWithIndex(_.range(64, 72), (index, code) => {
+    eachWithIndex(_.range(64, 72), (index, code) => {
       this.button(code, `r:${index}`);
     });
 

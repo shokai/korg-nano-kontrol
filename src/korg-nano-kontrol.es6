@@ -3,7 +3,7 @@
 import {Promise} from "es6-promise";
 const debug = require("debug")("korg-nano-kontrol");
 
-import * as Util from "./util";
+import {getEnv} from "./util";
 
 import nanoKONTROL from "./devices/nanoKONTROL";
 import nanoKONTROL2 from "./devices/nanoKONTROL2";
@@ -14,7 +14,7 @@ const Devices = [
 ];
 
 module.exports.connect = function(deviceName){
-  switch(Util.getEnv()){
+  switch(getEnv()){
   case "browser":
     return connectWebMidi(deviceName);
   case "nodejs":

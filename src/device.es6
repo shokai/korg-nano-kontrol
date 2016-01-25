@@ -1,7 +1,7 @@
 "use strict";
 
 import {EventEmitter2} from "eventemitter2";
-import * as Util from "./util";
+import {getEnv} from "./util";
 
 export default class Device extends EventEmitter2 {
 
@@ -19,7 +19,7 @@ export default class Device extends EventEmitter2 {
       type: "analog"
     };
 
-    switch(Util.getEnv()){
+    switch(getEnv()){
     case "browser":
       this.input.onmidimessage = (msg) => {
         this.emit("midi:message", Array.prototype.slice.call(msg.data));
