@@ -5,6 +5,9 @@
     "node": true,
     "browser": true
   },
+  "plugins": [
+    "if-in-test"
+  ],
   "rules":{
     "strict": [2, "global"],
     "new-cap": 0,
@@ -15,6 +18,7 @@
     "no-loop-func": 0,
     "curly": 0,
     "no-constant-condition": 1,
-    "no-console": 1
+    "no-console": 1,
+    "if-in-test/if": [1, {"directory": "test"}]
   }
 }

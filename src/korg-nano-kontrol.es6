@@ -13,7 +13,7 @@ const Devices = [
   nanoKONTROL2
 ];
 
-export function connect(deviceName){
+module.exports.connect = function(deviceName){
   switch(Util.getEnv()){
   case "browser":
     return connectWebMidi(deviceName);

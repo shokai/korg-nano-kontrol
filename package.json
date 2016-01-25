@@ -4,9 +4,11 @@
   "description": "Node.js/Browser library for KORG nanoKONTROL and nanoKONTROL2",
   "main": "lib/korg-nano-kontrol.js",
   "scripts": {
-    "test": "eslint src/*.es6 src/*/*.es6",
+    "mocha": "mocha test/test_*.es6 --compilers js:babel-register",
+    "eslint": "eslint src/*.es6 src/*/*.es6 test/*.es6",
+    "test": "npm run eslint && npm run mocha",
     "build": "babel src/ --out-dir lib/ --source-maps inline",
-    "watch": "parallelshell 'npm run build -- --watch' 'chokidar \"src/*.es6\" -c \"npm run test\"'",
+    "watch": "parallelshell 'npm run build -- --watch' 'chokidar \"(src|test)/*.es6\" -c \"npm run eslint\"'",
     "buildSample": "browserify --debug samples/webmidi/src/main.js -o samples/webmidi/dist/bundle.js"
   },
   "keywords": [
@@ -22,9 +24,12 @@
     "babel-eslint": "^4.1.6",
     "babel-preset-es2015": "^6.3.13",
     "browserify": "^13.0.0",
+    "chai": "^3.4.1",
     "chokidar-cli": "^1.2.0",
     "eslint": "^1.10.3",
+    "eslint-plugin-if-in-test": "^0.1.2",
     "jquery": "*",
+    "mocha": "^2.3.4",
     "parallelshell": "^2.0.0"
   },
   "dependencies": {
