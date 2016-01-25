@@ -1,5 +1,4 @@
-var path = require('path');
-var nanoKONTROL = require(path.resolve());
+var nanoKONTROL = require("../../");
 // var nanoKONTROL = require('korg-nano-kontrol');
 
 nanoKONTROL.connect()

@@ -1,18 +1,17 @@
 "use strict";
 
 import {Promise} from "es6-promise";
-var debug = require("debug")("korg-nano-kontrol");
+const debug = require("debug")("korg-nano-kontrol");
 
-var Util = require("./util");
+import * as Util from "./util";
 
-var Devices = [
-  require("./devices/nanoKONTROL2"),
-  require("./devices/nanoKONTROL")
+import nanoKONTROL from "./devices/nanoKONTROL";
+import nanoKONTROL2 from "./devices/nanoKONTROL2";
+
+const Devices = [
+  nanoKONTROL,
+  nanoKONTROL2
 ];
-
-if(Util.getEnv() === "nodejs"){
-  var midi = require("midi");
-}
 
 export function connect(deviceName){
   switch(Util.getEnv()){
@@ -29,7 +28,7 @@ function connectWebMidi(deviceName){
     if(navigator && typeof navigator.requestMIDIAccess !== "function"){
       return reject(new Error("Web MIDI API is not supported"));
     }
-    var devices = Devices.filter((i) => {
+    const devices = Devices.filter((i) => {
       return !deviceName || i.deviceName === deviceName;
     });
     navigator.requestMIDIAccess()
@@ -47,19 +46,20 @@ function connectWebMidi(deviceName){
 }
 
 function connectNodeMidi(deviceName){
+  const midi = require("midi");
   debug(`connectNodeMidi(${deviceName})`);
   return new Promise((resolve, reject) => {
-    var input = new midi.input();
-    var devices = Devices.filter(function(device){
+    const input = new midi.input();
+    const devices = Devices.filter(function(device){
       return !deviceName || device.deviceName === deviceName;
     });
 
-    for(var i = 0; i < input.getPortCount(); i++){
-      var name = input.getPortName(i);
+    for(let i = 0; i < input.getPortCount(); i++){
+      let name = input.getPortName(i);
       debug(`found device [${i}] "${name}"`);
 
-      for(var j = 0; j < devices.length; j++){
-        var Device = devices[j];
+      for(let j = 0; j < devices.length; j++){
+        let Device = devices[j];
         debug(Device.deviceName);
         if(Device.detect(name)){
           debug(`detect "${Device.name}"`);

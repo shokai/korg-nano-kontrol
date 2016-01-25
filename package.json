@@ -6,7 +6,7 @@
   "scripts": {
     "test": "eslint src/*.es6 src/*/*.es6",
     "build": "babel src/ --out-dir lib/ --source-maps inline",
-    "watch": "parallelshell 'npm run build -- --watch' 'esw src/ --watch'",
+    "watch": "parallelshell 'npm run build -- --watch' 'chokidar \"src/*.es6\" -c \"npm run test\"'",
     "buildSample": "browserify --debug samples/webmidi/src/main.js -o samples/webmidi/dist/bundle.js"
   },
   "keywords": [
@@ -22,6 +22,7 @@
     "babel-eslint": "^4.1.6",
     "babel-preset-es2015": "^6.3.13",
     "browserify": "^13.0.0",
+    "chokidar-cli": "^1.2.0",
     "eslint": "^1.10.3",
     "jquery": "*",
     "parallelshell": "^2.0.0"
