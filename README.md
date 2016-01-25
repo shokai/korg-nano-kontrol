@@ -15,9 +15,9 @@ Node.js/Browser library for KORG nanoKONTROL and nanoKONTROL2.
 - On Browser, require [WebMIDI API](http://www.w3.org/TR/webmidi/) support.
 
 ## Samples
-- [node](https://github.com/shokai/korg-nano-kontrol/tree/master/samples/node)
-- [webmidi](https://github.com/shokai/korg-nano-kontrol/tree/master/samples/webmidi)
-
+- [Node.js](https://github.com/shokai/korg-nano-kontrol/tree/master/samples/node)
+- [WebMIDI](https://github.com/shokai/korg-nano-kontrol/tree/master/samples/webmidi)
+- [Hue controller](https://github.com/shokai/hue-korg-control)
 
 ## Usage
 
