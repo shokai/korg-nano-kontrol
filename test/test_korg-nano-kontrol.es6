@@ -3,7 +3,7 @@
 
 import "./test_helper";
 import {assert} from "chai";
-import nanoKONTROL from "../";
+import nanoKONTROL from "../src/korg-nano-kontrol";
 
 describe("korg-nano-kontrol", function(){
 
