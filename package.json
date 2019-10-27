@@ -1,6 +1,6 @@
 {
-  "name": "korg-nano-kontrol",
-  "version": "0.2.9",
+  "name": "@kaibu/korg-nano-kontrol",
+  "version": "0.2.10",
   "description": "Node.js/Browser library for KORG nanoKONTROL and nanoKONTROL2",
   "main": "lib/korg-nano-kontrol.js",
   "scripts": {
@@ -46,5 +46,9 @@
   "bugs": {
     "url": "https://github.com/shokai/korg-nano-kontrol/issues"
   },
-  "homepage": "https://github.com/shokai/korg-nano-kontrol#readme"
+  "homepage": "https://github.com/shokai/korg-nano-kontrol#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }
