@@ -6,6 +6,9 @@ export function toArray(obj){
 
 export function getEnv(){
   if(typeof window === "object"){
+    if(typeof window.process !== 'undefined') {
+      return "nodejs";
+    }
     return "browser";
   }
   else{
