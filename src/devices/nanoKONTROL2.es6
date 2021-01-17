@@ -12,11 +12,11 @@ export default class NanoKONTROL2 extends Device {
     return "nanoKONTROL2";
   }
   static detect(name){
-    return /^nanoKONTROL2\s/i.test(name);
+    return /^nanoKONTROL2/i.test(name);
   }
 
-  constructor(input, name){
-    super(input, name);
+  constructor(input, output, name){
+    super(input, output, name);
     this.debug = Debug("korg-nano-kontrol:nanoKONTROL2");
     this.debug("created");
 

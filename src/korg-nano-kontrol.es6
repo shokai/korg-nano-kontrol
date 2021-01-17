@@ -51,9 +51,15 @@ function connectNodeMidi(deviceName){
   debug(`connectNodeMidi(${deviceName})`);
   return new Promise((resolve, reject) => {
     const input = new midi.input();
+    const output = new midi.output();
     const devices = Devices.filter(function(device){
       return !deviceName || device.deviceName === deviceName;
     });
+
+    let recognizedInput = null;
+    let recognizedOutput = null;
+    let recognizedName = null;
+    let recognizedDevice = null;
 
     for(let i = 0; i < input.getPortCount(); i++){
       let name = input.getPortName(i);
@@ -61,13 +67,34 @@ function connectNodeMidi(deviceName){
 
       for(let Device of devices){
         if(Device.detect(name)){
-          debug(`detect "${Device.name}"`);
-          debug(`openPort ${i}`);
-          input.openPort(i);
-          return resolve(new Device(input, name));
+          debug(`detected valid name "${Device.name}"`);
+          recognizedName = name;
+          recognizedInput = i;
+          recognizedDevice = Device;
         }
       }
     }
-    return reject("device not found");
+
+    if(!recognizedDevice) {
+      return reject("device not found");
+    }
+
+    for(let i = 0; i < output.getPortCount(); i++) {
+      if(recognizedDevice.detect(output.getPortName(i))) {
+        debug(`detected valid output name "${recognizedDevice.name}`);
+        recognizedOutput = i;
+      }
+    }
+
+    if(!recognizedDevice) {
+      return reject("device not found");
+    }
+
+    debug(`open input ${recognizedInput}`);
+    input.openPort(recognizedInput);
+    debug(`open output ${recognizedOutput}`);
+    output.openPort(recognizedOutput);
+
+    return resolve(new recognizedDevice(input, output, recognizedName));
   });
 }
