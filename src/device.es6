@@ -5,16 +5,18 @@ import {getEnv} from "./util";
 
 export default class Device extends EventEmitter2 {
 
-  constructor(input, name, opts = {globalMidiChannel: false}){
+  constructor(input, output, name, opts = {globalMidiChannel: false}){
     super({
       wildcard: true,
       delimiter: ":"
     });
     this.input = input;
+    this.output = output;
     this.name = name;
     this.opts = opts;
 
     this.codes = {};
+    this.buttons = {};
     this.default = {
       type: "analog"
     };
@@ -48,6 +50,13 @@ export default class Device extends EventEmitter2 {
   close(){
     this.debug("closePort");
     this.input.closePort();
+    this.output.closePort();
+  }
+
+  light(name, status) {
+    if(this.buttons[name]) {
+      this.output.sendMessage([176, this.buttons[name], status === 1 ? 127 : 0]);
+    }
   }
 
   register(code, opts){
@@ -68,6 +77,8 @@ export default class Device extends EventEmitter2 {
       type: "digital"
     };
     this.register(code, opts);
+
+    this.buttons[name] = code;
   }
 
   knob(code, name){
